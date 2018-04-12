@@ -1,15 +1,18 @@
 package com.sample_mvc.models;
 import com.sample_mvc.models.Model;
 import com.sample_mvc.models.entities.UserEntity;
+import com.sample_mvc.models.validators.UserValidator;
 
 public class UserModel extends Model {
     private UserEntity user;
+    private UserValidator validator;
 
     public UserModel() {
     }
 
     public UserModel(UserEntity entity) {
         user = entity;
+        validator = new UserValidator();
     }
 
     public String getName() {
@@ -28,5 +31,13 @@ public class UserModel extends Model {
         // End
 
         return new UserModel(entity);
+    }
+
+    public Boolean validate() {
+        return this.validator.validate();
+    }
+
+    public String save() {
+        return "saved!";
     }
 }

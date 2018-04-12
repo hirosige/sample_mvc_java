@@ -8,12 +8,17 @@ class Main{
   public static void main(String[] args){
     UserController ctrl = new UserController();
 
-    // ユーザの操作がユーザー一人の詳細画面を見たいケース
+    // ユーザの操作がユーザー一人の詳細画面を見たいケース Start
     UserModel user = ctrl.show(1);
 
     // ViewにModelを渡す
     UserView view = new UserView(user);
     System.out.println(view.getDecoName());
     System.out.println(view.getDecoAge());
+    // ユーザの操作がユーザー一人の詳細画面を見たいケース End
+
+    // ユーザを登録するケース Start
+    ctrl.create();
+    // ユーザを登録するケース End
   }
 }

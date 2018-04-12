@@ -22,6 +22,13 @@ public class UserController extends AppController {
     }
 
     public void create() {
+        // 実際はユーザが入力した値を反映したインスタンスになる
+        UserModel userModel = UserModel.find(1);
+
+        if (userModel.validate()) {
+            // DBへ登録
+            userModel.save();
+        }
     }
 
     public void edit() {
