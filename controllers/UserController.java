@@ -27,7 +27,8 @@ public class UserController extends AppController {
 
         if (userModel.validate()) {
             // DBへ登録
-            userModel.save();
+            String result = userModel.save();
+            System.out.println(result);
         }
     }
 
