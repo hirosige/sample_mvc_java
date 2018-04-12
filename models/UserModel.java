@@ -2,6 +2,8 @@ package com.sample_mvc.models;
 import com.sample_mvc.models.Model;
 import com.sample_mvc.models.entities.UserEntity;
 import com.sample_mvc.models.validators.UserValidator;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserModel extends Model {
     private UserEntity user;
@@ -21,6 +23,17 @@ public class UserModel extends Model {
 
     public int getAge() {
         return user.getAge();
+    }
+
+    public static List<UserModel> all() {
+        // TODO 全てのユーザデータを返す
+        List<UserModel> list = new ArrayList<>();
+
+        list.add(UserModel.find(1));
+        list.add(UserModel.find(2));
+        list.add(UserModel.find(3));
+
+        return list;
     }
 
     public static UserModel find(int id) {
